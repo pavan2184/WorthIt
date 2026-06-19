@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background: #f4f6f8;
+  color: #101828;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #101828;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input[type="range"] {
+  accent-color: #00a86b;
+}

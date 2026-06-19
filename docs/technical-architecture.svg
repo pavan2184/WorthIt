@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1250" viewBox="0 0 1800 1250" role="img" aria-labelledby="title desc">
+  <title id="title">WorthIt Technical Architecture</title>
+  <desc id="desc">A technical architecture diagram for WorthIt showing the browser, Next.js frontend, FastAPI backend services, contracts, and persistence options with technology symbols.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2E6B4F"/>
+    </marker>
+    <style>
+      .bg { fill: #F6F8F5; }
+      .panel { fill: #FFFFFF; stroke: #DCE5DF; stroke-width: 2; rx: 24; }
+      .card { fill: #FFFFFF; stroke: #CBD8D0; stroke-width: 2; rx: 18; }
+      .green-card { fill: #EAF5EE; stroke: #94C8A8; stroke-width: 2; rx: 18; }
+      .orange-card { fill: #FFF2E8; stroke: #F0B57B; stroke-width: 2; rx: 18; }
+      .blue-card { fill: #EEF6FF; stroke: #A7C7EF; stroke-width: 2; rx: 18; }
+      .purple-card { fill: #F6F0FF; stroke: #C6B5F2; stroke-width: 2; rx: 18; }
+      .dark-card { fill: #17221D; stroke: #17221D; stroke-width: 2; rx: 18; }
+      .storage-card { fill: #EEF8F2; stroke: #A7CEB6; stroke-width: 2; rx: 18; }
+      text { font-family: Arial, Helvetica, sans-serif; text-rendering: geometricPrecision; }
+      .title { font-size: 54px; font-weight: 800; fill: #173D2D; letter-spacing: 0; }
+      .subtitle { font-size: 25px; font-weight: 500; fill: #4E5C54; letter-spacing: 0; }
+      .section { font-size: 26px; font-weight: 800; fill: #173D2D; letter-spacing: 0; }
+      .label { font-size: 26px; font-weight: 800; fill: #17221D; letter-spacing: 0; }
+      .label-light { font-size: 26px; font-weight: 800; fill: #FFFFFF; letter-spacing: 0; }
+      .body { font-size: 20px; font-weight: 600; fill: #3D4B43; letter-spacing: 0; }
+      .body-light { font-size: 20px; font-weight: 600; fill: #E7EFEA; letter-spacing: 0; }
+      .small { font-size: 17px; font-weight: 600; fill: #5B6860; letter-spacing: 0; }
+      .chip { font-size: 16px; font-weight: 800; fill: #2E6B4F; letter-spacing: 0; }
+      .mono { font-family: Menlo, Consolas, monospace; font-size: 16px; font-weight: 700; fill: #2E3B33; letter-spacing: 0; }
+      .mono-light { font-family: Menlo, Consolas, monospace; font-size: 16px; font-weight: 700; fill: #E7EFEA; letter-spacing: 0; }
+      .arrow { stroke: #2E6B4F; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .arrow-soft { stroke: #8AA596; stroke-width: 3; fill: none; marker-end: url(#arrow); stroke-dasharray: 9 9; }
+      .icon-ring { fill: #FFFFFF; stroke: #D3DED8; stroke-width: 2; }
+      .badge { fill: #FFFFFF; stroke: #D3DED8; stroke-width: 1.5; rx: 16; }
+      .muted-line { stroke: #E2EAE5; stroke-width: 2; }
+    </style>
+
+    <symbol id="icon-browser" viewBox="0 0 64 64">
+      <rect x="8" y="12" width="48" height="40" rx="6" fill="#FFFFFF" stroke="#2E6B4F" stroke-width="4"/>
+      <path d="M8 24 H56" stroke="#2E6B4F" stroke-width="4"/>
+      <circle cx="17" cy="18" r="2.5" fill="#F28C38"/>
+      <circle cx="25" cy="18" r="2.5" fill="#9CC8AD"/>
+      <circle cx="33" cy="18" r="2.5" fill="#A7C7EF"/>
+    </symbol>
+
+    <symbol id="icon-next" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="28" fill="#111111"/>
+      <path d="M20 45 V19 H26 L40 45" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M40 19 V45" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-react" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="5" fill="#61DAFB"/>
+      <ellipse cx="32" cy="32" rx="24" ry="9" fill="none" stroke="#61DAFB" stroke-width="4"/>
+      <ellipse cx="32" cy="32" rx="24" ry="9" fill="none" stroke="#61DAFB" stroke-width="4" transform="rotate(60 32 32)"/>
+      <ellipse cx="32" cy="32" rx="24" ry="9" fill="none" stroke="#61DAFB" stroke-width="4" transform="rotate(120 32 32)"/>
+    </symbol>
+
+    <symbol id="icon-typescript" viewBox="0 0 64 64">
+      <rect x="8" y="8" width="48" height="48" rx="8" fill="#3178C6"/>
+      <text x="32" y="41" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">TS</text>
+    </symbol>
+
+    <symbol id="icon-tailwind" viewBox="0 0 64 64">
+      <path d="M16 32 C20 20 29 17 38 24 C43 28 46 28 50 24 C46 36 37 39 28 32 C23 28 20 28 16 32Z" fill="#38BDF8"/>
+      <path d="M14 44 C18 34 26 32 34 38 C39 42 43 42 50 36 C46 47 37 50 27 44 C22 41 18 40 14 44Z" fill="#06B6D4"/>
+    </symbol>
+
+    <symbol id="icon-fastapi" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="28" fill="#009688"/>
+      <path d="M36 10 L18 36 H31 L27 54 L47 26 H34 Z" fill="#FFFFFF"/>
+    </symbol>
+
+    <symbol id="icon-python" viewBox="0 0 64 64">
+      <path d="M20 10 H38 C45 10 49 14 49 21 V29 H29 C23 29 20 32 20 38 V43 H14 C9 43 6 40 6 35 V26 C6 18 12 10 20 10Z" fill="#3776AB"/>
+      <path d="M44 54 H26 C19 54 15 50 15 43 V35 H35 C41 35 44 32 44 26 V21 H50 C55 21 58 24 58 29 V38 C58 46 52 54 44 54Z" fill="#FFD343"/>
+      <circle cx="25" cy="18" r="2.5" fill="#FFFFFF"/>
+      <circle cx="39" cy="46" r="2.5" fill="#6B5B00"/>
+    </symbol>
+
+    <symbol id="icon-pydantic" viewBox="0 0 64 64">
+      <path d="M32 6 L56 20 V44 L32 58 L8 44 V20 Z" fill="#7C3AED"/>
+      <text x="32" y="41" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">P</text>
+    </symbol>
+
+    <symbol id="icon-mongodb" viewBox="0 0 64 64">
+      <path d="M32 6 C45 20 47 37 32 58 C17 37 19 20 32 6Z" fill="#13AA52"/>
+      <path d="M32 15 V53" stroke="#0B6E34" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-supabase" viewBox="0 0 64 64">
+      <path d="M35 6 L12 34 H31 L29 58 L52 28 H34 Z" fill="#3ECF8E"/>
+      <path d="M35 6 L34 28 H52 Z" fill="#2E6B4F" opacity="0.55"/>
+    </symbol>
+
+    <symbol id="icon-json" viewBox="0 0 64 64">
+      <rect x="8" y="10" width="48" height="44" rx="8" fill="#F28C38"/>
+      <text x="22" y="39" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="25" font-weight="800" fill="#FFFFFF">{</text>
+      <text x="42" y="39" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="25" font-weight="800" fill="#FFFFFF">}</text>
+    </symbol>
+  </defs>
+
+  <rect class="bg" width="1800" height="1250"/>
+
+  <text id="diagram-title" class="title" x="84" y="82">WorthIt Technical Architecture</text>
+  <text class="subtitle" x="84" y="120">Next.js decision dashboard, FastAPI calculation engine, deterministic services, and demo-ready persistence.</text>
+
+  <rect class="panel" x="70" y="165" width="1660" height="270"/>
+  <text class="section" x="105" y="210">End-to-End Request Flow</text>
+
+  <rect class="green-card" x="110" y="240" width="300" height="145"/>
+  <use href="#icon-browser" x="135" y="273" width="58" height="58"/>
+  <text class="label" x="210" y="285">Browser</text>
+  <text class="body" x="210" y="318">User starts a decision</text>
+  <text class="small" x="210" y="345">localhost:3012</text>
+
+  <rect class="dark-card" x="500" y="240" width="310" height="145"/>
+  <use href="#icon-next" x="525" y="270" width="62" height="62"/>
+  <text class="label-light" x="605" y="285">Next.js Frontend</text>
+  <text class="body-light" x="605" y="318">App Router + React UI</text>
+  <text class="mono-light" x="605" y="346">WorthIt/frontend</text>
+
+  <rect class="green-card" x="900" y="240" width="310" height="145"/>
+  <use href="#icon-fastapi" x="925" y="270" width="62" height="62"/>
+  <text class="label" x="1005" y="285">FastAPI Backend</text>
+  <text class="body" x="1005" y="318">Routes calculate results</text>
+  <text class="mono" x="1005" y="346">WorthIt/backend</text>
+
+  <rect class="storage-card" x="1300" y="240" width="330" height="145"/>
+  <use href="#icon-mongodb" x="1325" y="270" width="62" height="62"/>
+  <use href="#icon-supabase" x="1375" y="270" width="62" height="62"/>
+  <text class="label" x="1452" y="285">Persistence</text>
+  <text class="body" x="1452" y="318">Saved decisions</text>
+  <text class="body" x="1452" y="345">Tracker entries</text>
+
+  <path class="arrow" d="M420 312 L490 312"/>
+  <path class="arrow" d="M820 312 L890 312"/>
+  <path class="arrow" d="M1220 312 L1290 312"/>
+
+  <rect class="panel" x="70" y="475" width="790" height="405"/>
+  <text class="section" x="105" y="520">Frontend Stack</text>
+
+  <rect class="card" x="110" y="550" width="335" height="130"/>
+  <use href="#icon-react" x="135" y="584" width="58" height="58"/>
+  <text class="label" x="210" y="590">React Components</text>
+  <text class="body" x="210" y="622">Decision dashboard</text>
+  <text class="body" x="210" y="650">Assumptions editor</text>
+
+  <rect class="blue-card" x="490" y="550" width="325" height="130"/>
+  <use href="#icon-typescript" x="515" y="584" width="58" height="58"/>
+  <text class="label" x="590" y="590">TypeScript Types</text>
+  <text class="mono" x="590" y="622">lib/types.ts</text>
+  <text class="mono" x="590" y="650">lib/api.ts</text>
+
+  <rect class="blue-card" x="110" y="715" width="335" height="130"/>
+  <use href="#icon-tailwind" x="135" y="749" width="58" height="58"/>
+  <text class="label" x="210" y="755">Tailwind CSS</text>
+  <text class="body" x="210" y="787">WorthIt palette</text>
+  <text class="body" x="210" y="815">Responsive app UI</text>
+
+  <rect class="orange-card" x="490" y="715" width="325" height="130"/>
+  <use href="#icon-json" x="515" y="749" width="58" height="58"/>
+  <text class="label" x="590" y="755">API Client</text>
+  <text class="body" x="590" y="787">Parse, calculate, save</text>
+  <text class="body" x="590" y="815">Fetches JSON payloads</text>
+
+  <rect class="panel" x="940" y="475" width="790" height="405"/>
+  <text class="section" x="975" y="520">Backend Stack</text>
+
+  <rect class="green-card" x="980" y="550" width="335" height="130"/>
+  <use href="#icon-fastapi" x="1005" y="584" width="58" height="58"/>
+  <text class="label" x="1080" y="590">FastAPI Routes</text>
+  <text class="mono" x="1080" y="622">/api/parse</text>
+  <text class="mono" x="1080" y="650">/api/decisions</text>
+
+  <rect class="blue-card" x="1360" y="550" width="325" height="130"/>
+  <use href="#icon-python" x="1385" y="584" width="58" height="58"/>
+  <text class="label" x="1460" y="590">Python Services</text>
+  <text class="body" x="1460" y="622">Parser + calculator</text>
+  <text class="body" x="1460" y="650">Tracker projections</text>
+
+  <rect class="purple-card" x="980" y="715" width="335" height="130"/>
+  <use href="#icon-pydantic" x="1005" y="749" width="58" height="58"/>
+  <text class="label" x="1080" y="755">Pydantic Models</text>
+  <text class="body" x="1080" y="787">DecisionPayload</text>
+  <text class="body" x="1080" y="815">CalculationResult</text>
+
+  <rect class="orange-card" x="1360" y="715" width="325" height="130"/>
+  <use href="#icon-json" x="1385" y="749" width="58" height="58"/>
+  <text class="label" x="1460" y="755">Deterministic API</text>
+  <text class="body" x="1460" y="787">Rule-based parser</text>
+  <text class="body" x="1460" y="815">No hosted LLM call</text>
+
+  <path class="arrow" d="M815 780 C875 780 910 780 970 780"/>
+
+  <rect class="panel" x="70" y="920" width="1660" height="210"/>
+  <text class="section" x="105" y="965">Core Data Path</text>
+
+  <rect class="badge" x="120" y="1000" width="245" height="82"/>
+  <text class="chip" x="145" y="1028">1. Prompt or quick-start</text>
+  <text class="small" x="145" y="1056">Input becomes a draft model</text>
+
+  <rect class="badge" x="405" y="1000" width="245" height="82"/>
+  <text class="chip" x="430" y="1028">2. Parse route</text>
+  <text class="mono" x="430" y="1056">decision_parser.py</text>
+
+  <rect class="badge" x="690" y="1000" width="245" height="82"/>
+  <text class="chip" x="715" y="1028">3. Calculate route</text>
+  <text class="mono" x="715" y="1056">calculator.py</text>
+
+  <rect class="badge" x="975" y="1000" width="245" height="82"/>
+  <text class="chip" x="1000" y="1028">4. Dashboard result</text>
+  <text class="small" x="1000" y="1056">Score, savings, break-even</text>
+
+  <rect class="badge" x="1260" y="1000" width="330" height="82"/>
+  <text class="chip" x="1285" y="1028">5. Save or track</text>
+  <text class="small" x="1285" y="1056">MongoDB, Supabase, or memory</text>
+
+  <path class="arrow-soft" d="M365 1041 L395 1041"/>
+  <path class="arrow-soft" d="M650 1041 L680 1041"/>
+  <path class="arrow-soft" d="M935 1041 L965 1041"/>
+  <path class="arrow-soft" d="M1220 1041 L1250 1041"/>
+
+  <line class="muted-line" x1="105" y1="1148" x2="1695" y2="1148"/>
+
+  <rect class="badge" x="105" y="1170" width="440" height="54"/>
+  <text class="chip" x="128" y="1193">Runtime Ports</text>
+  <text class="small" x="128" y="1216">Frontend 3012, backend 8012</text>
+
+  <rect class="badge" x="605" y="1170" width="510" height="54"/>
+  <text class="chip" x="628" y="1193">Primary Repo Path</text>
+  <text class="small" x="628" y="1216">WorthIt/frontend + WorthIt/backend</text>
+
+  <rect class="badge" x="1175" y="1170" width="520" height="54"/>
+  <text class="chip" x="1198" y="1193">Data Exchange</text>
+  <text class="small" x="1198" y="1216">JSON contracts shared by UI and API</text>
+</svg>
