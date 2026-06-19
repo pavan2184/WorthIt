@@ -1,6 +1,6 @@
 # WorthIt Project Status
 
-Last updated: 2026-06-17
+Last updated: 2026-06-19
 
 ## Current State
 
@@ -25,6 +25,11 @@ The app currently includes:
 - Supabase-backed persistence with MongoDB and in-memory fallbacks.
 - Submission-facing README with the current local run commands, supported demo
   flow, and an explicit note that parsing is rule-based for the hackathon MVP.
+- Vercel deployment:
+  - Frontend: `https://frontend-cyan-kappa-83.vercel.app`
+  - Backend health: `https://backend-phi-inky-78.vercel.app/health`
+  - The deployed backend uses in-memory persistence unless Supabase environment
+    variables are configured in Vercel.
 
 ## Frontend
 
@@ -105,6 +110,7 @@ Files added or updated:
 - `backend/.env.example`
 - `backend/app/core/config.py`
 - `backend/app/db/mongo.py`
+- `backend/pyproject.toml`
 
 Notes:
 
@@ -113,6 +119,8 @@ Notes:
 - Supabase service keys must stay server-side.
 - Decision rows and tracker entries are persisted through Supabase when
   configured.
+- The Vercel backend deployment falls back to in-memory storage when Supabase
+  variables are not set.
 
 ## Live Tracker
 

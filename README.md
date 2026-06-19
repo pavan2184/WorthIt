@@ -11,6 +11,14 @@ chart data, and a WorthIt Score. Saved decisions can also be tracked over time,
 so the app updates projections from real usage and spend instead of stopping at
 a one-time estimate.
 
+## Live Demo
+
+- Frontend: https://frontend-cyan-kappa-83.vercel.app
+- Backend health: https://backend-phi-inky-78.vercel.app/health
+
+The live Vercel deployment uses the backend's in-memory fallback unless
+Supabase environment variables are configured in Vercel.
+
 ## What It Does
 
 - Opens demo-safe workflow cards for transport, streaming, gym, camera, and
