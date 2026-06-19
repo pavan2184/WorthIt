@@ -2,6 +2,14 @@
 name = "worthit-backend"
 version = "0.1.0"
 requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.115.6",
+  "uvicorn[standard]==0.34.0",
+  "pydantic==2.10.4",
+  "motor==3.6.0",
+  "pymongo==4.9.2",
+  "httpx==0.28.1",
+]
 
 [project.scripts]
 app = "app.main:app"
