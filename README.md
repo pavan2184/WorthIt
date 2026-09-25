@@ -1,15 +1,26 @@
-# WorthIt
+<a id="readme-top"></a>
 
-WorthIt is an interactive break-even dashboard for everyday decisions: rentals
-vs rides, subscriptions vs pay-per-use, memberships vs day passes, and other
-small choices where hidden costs make the answer fuzzy.
+<div align="center">
+  <h1>WorthIt</h1>
+  <p><strong>Know when a decision pays off.</strong></p>
+  <p>An interactive break-even dashboard for everyday choices, editable assumptions, and real-world tracking.</p>
+  <p>
+    <a href="https://frontend-cyan-kappa-83.vercel.app"><strong>Open the live app »</strong></a>
+    <br /><br />
+    <a href="#demo-flow">View demo flow</a>
+    &middot;
+    <a href="https://github.com/pavan2184/WorthIt/issues/new">Report a bug</a>
+    &middot;
+    <a href="https://github.com/pavan2184/WorthIt/issues/new">Request a feature</a>
+  </p>
+</div>
 
-The MVP starts from curated everyday comparison workflows or a natural-language
-question, turns that into editable assumptions, then uses a deterministic FastAPI
-calculation engine to produce totals, break-even usage, scenario comparisons,
-chart data, and a WorthIt Score. Saved decisions can also be tracked over time,
-so the app updates projections from real usage and spend instead of stopping at
-a one-time estimate.
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&amp;logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&amp;logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&amp;logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&amp;logoColor=white" alt="PostgreSQL" />
+</p>
 
 ## Live Demo
 
